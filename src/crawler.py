@@ -54,4 +54,4 @@ def extract_tech_data(url: str, limit: int = None):
     print(f"Done. {count} records saved to {output_path}")
 
 
-extract_tech_data(FULL_URL, limit=500)
+extract_tech_data(FULL_URL, limit=2000)
