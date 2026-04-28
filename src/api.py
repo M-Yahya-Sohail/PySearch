@@ -6,6 +6,7 @@ between our backend search engine and any future frontend (like a React web page
 """
 
 import math
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from search import PySearchEngine
@@ -13,8 +14,11 @@ from search import PySearchEngine
 # ==========================================
 # 📂 PATH SETUP
 # ==========================================
-INDEX_FILE = r"C:\Users\ghaza\OneDrive\Desktop\Semester 4\Analysis of Algorithms\Project\pysearch\data\inverted_index.json"
-DOCS_STORE_FILE = r"C:\Users\ghaza\OneDrive\Desktop\Semester 4\Analysis of Algorithms\Project\pysearch\data\docs_store.json"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+INDEX_FILE = os.path.join(DATA_DIR, "inverted_index.json")
+DOCS_STORE_FILE = os.path.join(DATA_DIR, "docs_store.json")
 
 # Initialize FastAPI app
 app = FastAPI(title="PySearch API")

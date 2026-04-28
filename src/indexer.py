@@ -10,15 +10,19 @@ is saved to disk, enabling O(1) time complexity for future search lookups.
 """
 
 import json
+import os
 # Importing function from the fast Tokenization file
 from Tokenization import clean_text
 
 # ==========================================
 # 📂 PATH SETUP (Static Absolute Paths)
 # ==========================================
-INPUT_FILE = r"C:\Users\ghaza\OneDrive\Desktop\Semester 4\Analysis of Algorithms\Project\pysearch\data\raw.jsonl"
-OUTPUT_INDEX_FILE = r"C:\Users\ghaza\OneDrive\Desktop\Semester 4\Analysis of Algorithms\Project\pysearch\data\inverted_index.json"
-DOCS_STORE_FILE = r"C:\Users\ghaza\OneDrive\Desktop\Semester 4\Analysis of Algorithms\Project\pysearch\data\docs_store.json" # New file for snippets
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+INPUT_FILE = os.path.join(DATA_DIR, "raw.jsonl")
+OUTPUT_INDEX_FILE = os.path.join(DATA_DIR, "inverted_index.json")
+DOCS_STORE_FILE = os.path.join(DATA_DIR, "docs_store.json")
 
 def build_inverted_index(input_path, output_index_path, output_store_path):
     print("Inverted Index and Document Store generation is starting...")
